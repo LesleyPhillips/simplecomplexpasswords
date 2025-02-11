@@ -2,7 +2,7 @@
 function New-SimpleComplexPasswords {
 
     $Today = (get-date -Format "yyyy-MM-dd")
-
+    $Symbols = '!#$%^&*'
     $Verbs = @(
         'Ask','Be','Become','Begin','Believe','Bring','Buy','Call','Can','Choose',
         'Come','Cost','Drive','Fall','Feel','Find','Fly','Get','Give','Go','Grow',
@@ -20,18 +20,19 @@ function New-SimpleComplexPasswords {
         'Service','Side','State','Story','Student','Thing','Water','Week','Work',
         'World'
     )
-    $Symbols = '!#$%^&*'
+    $Number = ((get-random 99) + 1)
 
     # example symbol,verb,color,noub,number
     $Symbols[(get-random $Symbols.length)] `
         + $Verbs[(get-random $Verbs.length)] `
         + $Colors[(get-random $Colors.length)] `
         + $Nouns[(get-random $Nouns.length)] `
-        + ((get-random 99) + 1)
+        + $Number
 
     # example Today,symbol,verb,noub,number
-    $Today + $Symbols[(get-random $Symbols.length)] `
+    $Today `
+        + $Symbols[(get-random $Symbols.length)] `
         + $verbs[(get-random $verbs.length)] `
         + $Nouns[(get-random $Nouns.length)] `
-        + ((get-random 99) + 1)
+        + $Number
 }
